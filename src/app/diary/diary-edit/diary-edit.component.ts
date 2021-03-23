@@ -32,7 +32,7 @@ export class DiaryEditComponent implements OnInit {
   }
 
   save(): void {
-    this.diaryService.save().subscribe(
+    this.diaryService.saveDiary().subscribe(
       result => {
         if (result.statusCode === 200) {
           alert('Saved!');

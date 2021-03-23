@@ -30,7 +30,7 @@ export class DiaryService {
     return of(diary);
   }
 
-  save(): Observable<any> {
+  saveDiary(): Observable<any> {
     return of({
         statusCode: 200
       }

@@ -18,6 +18,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {DiaryEditComponent} from './diary/diary-edit/diary-edit.component';
 import { HomeComponent } from './diary/home/home.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HomeComponent } from './diary/home/home.component';
     AppRoutingModule,
     MatListModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

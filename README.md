@@ -1,27 +1,10 @@
-# PersonalDiaryFront
+# PersonalDiary
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
+PersonalDiary est une réalisation dans le cadre des matières POO4 et BDD4 à Centrale Lille Institut - IG2I.
 
-## Development server
+Ce projet a été réalisé par : Alexandre Barczyk / Pierre Cossart / Mathis Haloy / Romain Rousseaux / Clément Zalewski / Riyad Zoubiri.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Vous trouverez le repository BackEnd à [cette adresse](https://github.com/Alexandrebzk/personalDiaryBack/).
 
-## Code scaffolding
+Vous trouverez la documentation complète du projet à [cette adresse](https://docs.google.com/document/d/1QDrIis8rzGPxuitJxN0MnQafYj-FTPQ8G4sdUYnxlaU/edit).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

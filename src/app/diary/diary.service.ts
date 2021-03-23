@@ -25,12 +25,20 @@ export class DiaryService {
         {
           id: '2',
           title: 'Field Title Test 1',
+          title: 'Field Title Test 2',
           unit: undefined,
           type: undefined
         } as Field,
       ]
     } as Diary;
     return of(diary);
+  }
+
+  saveDiary(): Observable<any> {
+    return of({
+        statusCode: 200
+      }
+    );
   }
 
   getDiaries(): Observable<Diary[]> {

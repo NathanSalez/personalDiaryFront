@@ -1,15 +1,14 @@
-import {Injectable} from '@angular/core';
-import {Diary} from '../models/diary.model';
-import {Observable, of} from 'rxjs';
-import {Field} from '../models/field.model';
+import { Injectable } from '@angular/core';
+import { Diary } from '../models/diary.model';
+import { Observable, of } from 'rxjs';
+import { Field } from '../models/field.model';
+import { DailyReportResponse } from '../models/daily-report-response.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DiaryService {
-
-  constructor() {
-  }
+  constructor() {}
 
   getDiary(): Observable<Diary> {
     const diary = {
@@ -20,24 +19,23 @@ export class DiaryService {
           id: '1',
           title: 'Field Title Test 1',
           unit: undefined,
-          type: undefined
+          type: undefined,
         } as Field,
         {
           id: '2',
           title: 'Field Title Test 2',
           unit: undefined,
-          type: undefined
+          type: undefined,
         } as Field,
-      ]
+      ],
     } as Diary;
     return of(diary);
   }
 
   saveDiary(): Observable<any> {
     return of({
-        statusCode: 200
-      }
-    );
+      statusCode: 200,
+    });
   }
 
   getDiaries(): Observable<Diary[]> {
@@ -49,15 +47,15 @@ export class DiaryService {
           id: '1',
           title: 'Field Title Test 1',
           unit: undefined,
-          type: undefined
+          type: undefined,
         } as Field,
         {
           id: '2',
           title: 'Field Title Test 1',
           unit: undefined,
-          type: undefined
+          type: undefined,
         } as Field,
-      ]
+      ],
     } as Diary;
 
     const diary2 = {
@@ -68,18 +66,22 @@ export class DiaryService {
           id: '3',
           title: 'Field Title Test 1',
           unit: undefined,
-          type: undefined
+          type: undefined,
         } as Field,
         {
           id: '4',
           title: 'Field Title Test 1',
           unit: undefined,
-          type: undefined
+          type: undefined,
         } as Field,
-      ]
+      ],
     } as Diary;
 
     const diaries = [diary, diary2];
     return of(diaries);
+  }
+
+  getDailyReports(id: string): DailyReportResponse {
+    return null;
   }
 }

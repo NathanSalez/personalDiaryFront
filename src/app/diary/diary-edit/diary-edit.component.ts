@@ -5,10 +5,10 @@ import {DiaryService} from '../diary.service';
 
 @Component({
   selector: 'app-diaries-edit',
-  templateUrl: './diaries-edit.component.html',
-  styleUrls: ['./diaries-edit.component.css']
+  templateUrl: './diary-edit.component.html',
+  styleUrls: ['./diary-edit.component.css']
 })
-export class DiariesEditComponent implements OnInit {
+export class DiaryEditComponent implements OnInit {
 
   diary: Diary;
 

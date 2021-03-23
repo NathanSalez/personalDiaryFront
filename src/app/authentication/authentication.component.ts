@@ -20,7 +20,7 @@ export class AuthenticationComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authenticationService.isLogged()) {
-      this.router.navigate(['pokedex']);
+      this.router.navigate(['diary']);
     }
   }
 

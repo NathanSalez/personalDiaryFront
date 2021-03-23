@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Diary} from '../models/diary.model';
 import {Observable, of} from 'rxjs';
 import {Field} from '../models/field.model';
+import {DailyReport} from '../models/daily-report.model';
 
 @Injectable({
   providedIn: 'root'
@@ -81,5 +82,10 @@ export class DiaryService {
 
     const diaries = [diary, diary2];
     return of(diaries);
+  }
+
+  create(dailyReport: DailyReport): void
+  {
+    // TODO: implements
   }
 }

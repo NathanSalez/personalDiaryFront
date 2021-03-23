@@ -37,6 +37,7 @@ export class DailyReportsComponent implements OnInit {
           id: '' + i,
           date: null,
           title: 'Lorem ipsum',
+          entryList: []
         },
       });
       i++;

@@ -13,16 +13,18 @@ import {RouterModule} from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { DiariesEditComponent } from './diaries/diaries-edit/diaries-edit.component';
 import {MatListModule} from '@angular/material/list';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {DiaryEditComponent} from './diary/diary-edit/diary-edit.component';
+import { HomeComponent } from './diary/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
-    DiariesEditComponent
+    DiaryEditComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

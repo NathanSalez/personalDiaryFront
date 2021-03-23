@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Diary} from './models/diary.model';
+import {Diary} from '../models/diary.model';
 import {Observable, of} from 'rxjs';
-import {Field} from './models/field.model';
+import {Field} from '../models/field.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,6 @@ export class DiaryService {
         } as Field,
         {
           id: '2',
-          title: 'Field Title Test 1',
           title: 'Field Title Test 2',
           unit: undefined,
           type: undefined

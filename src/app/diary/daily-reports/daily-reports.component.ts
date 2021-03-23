@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DailyReport } from '../../models/daily-report.model';
-import { Diary } from '../../models/diary.model';
-import * as moment from 'moment';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-daily-reports',
@@ -10,9 +8,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./daily-reports.component.css'],
 })
 export class DailyReportsComponent implements OnInit {
-  isLoaded: boolean = false;
+  isLoaded = false;
   dailyReportsViews: Map<number, DailyReportsView> = new Map();
-  currentDate = new Date();
 
   // TODO: Link with id of diary
 
@@ -22,7 +19,7 @@ export class DailyReportsComponent implements OnInit {
     this.loadData();
   }
 
-  private loadData() {
+  private loadData(): void {
     // CALL HTTP
     // dfoisdfoisjfisjfoisjfsejfoisjf
 
@@ -45,7 +42,7 @@ export class DailyReportsComponent implements OnInit {
     this.isLoaded = true;
   }
 
-  editReport(report: DailyReportsView) {
+  editReport(report: DailyReportsView): void {
     if (report == null) {
       this.router.navigate([`/daily-reports/edit`], {
         relativeTo: this.route,
@@ -66,7 +63,7 @@ export class DailyReportsComponent implements OnInit {
     const monday: Date = this.getMondayOfTheWeek(currentDate);
 
     for (let i = 1; i <= 7; i++) {
-      let date = new Date();
+      const date = new Date();
       date.setDate(monday.getDate() + i - 1);
       weekDays.push(date);
     }
@@ -75,8 +72,8 @@ export class DailyReportsComponent implements OnInit {
 
   getMondayOfTheWeek(date: Date): Date {
     date = new Date(date);
-    let day = date.getDay();
-    let diff = date.getDate() - day + (day == 0 ? -6 : 1);
+    const day = date.getDay();
+    const diff = date.getDate() - day + (day === 0 ? -6 : 1);
     return new Date(date.setDate(diff));
   }
 
@@ -84,11 +81,11 @@ export class DailyReportsComponent implements OnInit {
     return date.getDate();
   }
 
-  getMonthFromDate(date: Date) {
+  getMonthFromDate(date: Date): any {
     return date.getMonth();
   }
 
-  getYearFromDate(date: Date) {
+  getYearFromDate(date: Date): any {
     return date.getFullYear();
   }
 
@@ -120,7 +117,7 @@ export class DailyReportsComponent implements OnInit {
     return result;
   }
 
-  canDisplayBorder(date: number) {
+  canDisplayBorder(date: number): boolean {
     return date > 1;
   }
 

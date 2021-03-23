@@ -10,8 +10,7 @@ const routes: Routes = [
   { path: 'login', component: AuthenticationComponent },
   { path: 'diary/edit', component: DiaryEditComponent },
   { path: 'diary', component: HomeComponent },
-  { path: 'daily-reports', component: DailyReportsComponent },
-  { path: 'daily-reports/edit', component: DailyReportsComponent },
+  { path: 'diary/:id', component: DailyReportsComponent },
 ];
 
 @NgModule({

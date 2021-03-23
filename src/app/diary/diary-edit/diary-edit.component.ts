@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Diary} from '../models/diary.model';
-import {Field} from '../models/field.model';
+import {Diary} from '../../models/diary.model';
+import {Field} from '../../models/field.model';
 import {DiaryService} from '../diary.service';
 import {Router} from '@angular/router';
 

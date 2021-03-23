@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Diary} from '../models/diary.model';
+import {Diary} from '../../models/diary.model';
 import {AuthenticationService} from '../../authentication/authentication.service';
 import {Router} from '@angular/router';
 import {DiaryService} from '../diary.service';

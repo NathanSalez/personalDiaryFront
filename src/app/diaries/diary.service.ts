@@ -21,12 +21,19 @@ export class DiaryService {
           type: undefined
         } as Field,
         {
-          title: 'Field Title Test 1',
+          title: 'Field Title Test 2',
           unit: undefined,
           type: undefined
         } as Field,
       ]
     } as Diary;
     return of(diary);
+  }
+
+  save(): Observable<any> {
+    return of({
+        statusCode: 200
+      }
+    );
   }
 }

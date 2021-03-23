@@ -10,12 +10,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DailyReportsComponent implements OnInit {
   isLoaded = false;
   dailyReportsViews: Map<number, DailyReportsView> = new Map();
+  idDiary: number;
 
   // TODO: Link with id of diary
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.idDiary = params.id;
+      console.log(params);
+    });
     this.loadData();
   }
 

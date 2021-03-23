@@ -23,6 +23,7 @@ import { DailyReportsComponent } from './diary/daily-reports/daily-reports.compo
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
+import { DailyCreateComponent } from './diary/daily-create/daily-create.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatDividerModule } from '@angular/material/divider';
     DiaryEditComponent,
     HomeComponent,
     DailyReportsComponent,
+    DailyCreateComponent,
   ],
   imports: [
     BrowserModule,

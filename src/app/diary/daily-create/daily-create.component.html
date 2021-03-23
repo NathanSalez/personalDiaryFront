@@ -1,0 +1,8 @@
+<mat-list>
+  <mat-card *ngFor="let field of diary.fields">
+    <div><h2>{{field.title}}</h2></div>
+    <div>
+      {{field.content}}
+    </div>
+  </mat-card>
+</mat-list>

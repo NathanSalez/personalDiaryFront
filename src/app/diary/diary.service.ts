@@ -66,12 +66,14 @@ export class DiaryService {
         {
           id: '3',
           title: 'Field Title Test 1',
+          content: undefined,
           unit: undefined,
           type: undefined,
         } as Field,
         {
           id: '4',
           title: 'Field Title Test 1',
+          content: undefined,
           unit: undefined,
           type: undefined,
         } as Field,

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Diary} from '../../models/diary.model';
 import {DiaryService} from '../diary.service';
-import {ActivatedRoute, Router, Routes} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DailyReport} from '../../models/daily-report.model';
 import {Entry} from '../../models/entry.model';
 

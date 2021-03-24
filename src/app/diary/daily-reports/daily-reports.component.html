@@ -1,7 +1,12 @@
 <div class="h-100">
   <div>
     <h1>Rapports journaliers</h1>
-    <button routerLink="/diary/create" mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon">
+    <button
+      routerLink="/diary/create"
+      mat-mini-fab
+      color="primary"
+      aria-label="Example icon button with a plus one icon"
+    >
       <mat-icon>plus_one</mat-icon>
     </button>
   </div>
@@ -35,18 +40,28 @@
           <div
             class="text-center h-100 w-100 desc-tile hoverpointer"
             *ngIf="
-              getViewFromMap(dailyReport.value).dailyReport != null;
+              getViewFromMap(dailyReport.value).fieldsMap != null;
               else displayCreateButton
             "
-            (click)="editReport(dailyReport.value)"
+            (click)="editReport()"
           >
-            <span>
-              {{ getViewFromMap(dailyReport.value).dailyReport.title }}
-            </span>
+            <mat-list role="list">
+              <mat-list-item
+                role="listitem"
+                *ngFor="
+                  let fieldEntry of getViewFromMap(dailyReport.value).fieldsMap
+                    | keyvalue
+                "
+              >
+                {{ getEntryViewFromMap(fieldEntry.value).name }}:
+                {{ getEntryViewFromMap(fieldEntry.value).value }}
+                {{ getEntryViewFromMap(fieldEntry.value).unit }}
+              </mat-list-item>
+            </mat-list>
           </div>
 
           <ng-template #displayCreateButton>
-            <input value="Créer le rapport" (click)="editReport(null)" />
+            <input value="Créer le rapport" (click)="editReport()" />
           </ng-template>
         </div>
       </div>

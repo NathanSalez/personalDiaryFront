@@ -4,12 +4,15 @@ import { Observable, of } from 'rxjs';
 import { Field } from '../models/field.model';
 import { DailyReportResponse } from '../models/daily-report-response.model';
 import {DailyReport} from '../models/daily-report.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DiaryService {
-  constructor() {}
+  private baseUrl: string = 'http://localhost:8081';
+
+  constructor(private http: HttpClient) {}
 
   getDiary(): Observable<Diary> {
     const diary = {
@@ -89,7 +92,9 @@ export class DiaryService {
     // TODO: implements
   }
 
-  getDailyReports(id: string): DailyReportResponse {
-    return null;
+  getDailyReports(id: string): Observable<DailyReportResponse[]> {
+    return this.http.get<DailyReportResponse[]>(
+      `${this.baseUrl}/dailyReportsByDiaryId/${id}`
+    );
   }
 }

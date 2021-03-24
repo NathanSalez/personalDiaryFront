@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DailyReport } from '../../models/daily-report.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DailyReportResponse } from 'src/app/models/daily-report-response.model';
+import { DiaryService } from '../diary.service';
 
 @Component({
   selector: 'app-daily-reports',
@@ -9,58 +10,79 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DailyReportsComponent implements OnInit {
   isLoaded = false;
+  diaryId: string;
+  dailyReportResponses: DailyReportResponse[];
   dailyReportsViews: Map<number, DailyReportsView> = new Map();
-  idDiary: number;
 
-  // TODO: Link with id of diary
-
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private diaryService: DiaryService
+  ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.idDiary = params.id;
-      console.log(params);
+    this.route.paramMap.subscribe((params) => {
+      this.diaryId = params.get('id');
+      this.diaryService
+        .getDailyReports(this.diaryId)
+        .subscribe((response: DailyReportResponse[]) => {
+          this.dailyReportResponses = response;
+          this.loadData();
+        });
     });
-    this.loadData();
   }
 
   private loadData(): void {
-    // CALL HTTP
-    // dfoisdfoisjfisjfoisjfsejfoisjf
-
     const dailyWeeks = this.getRangeOfWeekDays();
-    let i = 1;
-    dailyWeeks.forEach((day) => {
-      this.dailyReportsViews.set(i, {
-        date: day,
-        dailyReport: {
-          id: '' + i,
-          date: null,
-          title: 'Lorem ipsum',
-          entryList: []
-        },
-      });
-      i++;
-    });
 
-    this.dailyReportsViews.get(3).dailyReport = null;
+    let i = 1;
+    if (dailyWeeks != null) {
+      dailyWeeks.forEach((day) => {
+        const reportForTheDay = this.findReportForDate(day);
+
+        if (reportForTheDay && reportForTheDay.length > 0) {
+          const fieldsMap: Map<string, EntryView> = new Map();
+          reportForTheDay[0].entryList.forEach((entryElt) => {
+            fieldsMap.set(entryElt.field.title, {
+              name: entryElt.field.title,
+              value: entryElt.value,
+              unit: entryElt.field.unit,
+            });
+          });
+          this.dailyReportsViews.set(i, {
+            dailyReportId: reportForTheDay[0].idDailyReport,
+            date: day,
+            fieldsMap,
+          });
+        } else {
+          this.dailyReportsViews.set(i, {
+            dailyReportId: reportForTheDay[0].idDailyReport,
+            date: day,
+            fieldsMap: null,
+          });
+        }
+        i++;
+      });
+    }
 
     this.isLoaded = true;
   }
 
-  editReport(report: DailyReportsView): void {
-    if (report == null) {
-      this.router.navigate([`/daily-reports/edit`], {
-        relativeTo: this.route,
-      });
-    } else {
-      this.router.navigate([`/daily-reports/edit`], {
-        queryParams: {
-          id: report.dailyReport.id,
-        },
-        relativeTo: this.route,
-      });
-    }
+  private findReportForDate(dateToCompare: Date) {
+    return this.dailyReportResponses.filter((report) => {
+      const date: Date = new Date(report.date);
+      return (
+        date.getDate() === dateToCompare.getDate() &&
+        date.getMonth() === dateToCompare.getMonth() &&
+        date.getFullYear() === dateToCompare.getFullYear()
+      );
+    });
+  }
+
+  editReport(): void {
+    this.router.navigate([`/daily-reports/${this.diaryId}/create`], {
+      relativeTo: this.route,
+    });
   }
 
   getRangeOfWeekDays(): Date[] {
@@ -130,19 +152,21 @@ export class DailyReportsComponent implements OnInit {
   getViewFromMap(dailyView: any): DailyReportsView {
     return dailyView as DailyReportsView;
   }
+
+  getEntryViewFromMap(sth: any): EntryView {
+    return sth as EntryView;
+  }
 }
 
-export enum ReportDayEnum {
-  MONDAY,
-  TUESDAY,
-  WEDNESDAY,
-  THURSDAY,
-  FRIDAY,
-  SATURDAY,
-  SUNDAY,
-}
-
-export class DailyReportsView {
+class DailyReportsView {
   date: Date;
-  dailyReport: DailyReport;
+  dailyReportId: string;
+  //<fieldname, {value, unit}>
+  fieldsMap: Map<string, EntryView>;
+}
+
+class EntryView {
+  name: string;
+  value: string;
+  unit: string;
 }

@@ -16,10 +16,10 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AuthenticationService, private router: Router, private diaryService: DiaryService) { }
 
   ngOnInit(): void {
-    // if (!this.authService.isLogged())
-    // {
-    //   this.router.navigate(['login']);
-    // }
+    if (!this.authService.isLogged())
+    {
+      this.router.navigate(['login']);
+    }
     this.getDiaries();
   }
 
@@ -32,7 +32,8 @@ export class HomeComponent implements OnInit {
 
   disconnect(): void
   {
-    this.authService.disconnect();
-    this.router.navigate(['/login']);
+    this.authService.disconnect().subscribe(() => {
+      this.router.navigate(['login']);
+    });
   }
 }

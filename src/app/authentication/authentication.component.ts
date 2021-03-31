@@ -13,6 +13,7 @@ export class AuthenticationComponent implements OnInit {
   email?: string;
   password?: string;
   badCredentials = false;
+  registered = false;
 
   constructor(private authenticationService: AuthenticationService,
               private router: Router
@@ -24,15 +25,24 @@ export class AuthenticationComponent implements OnInit {
     }
   }
 
-  getToken(): void {
+  login(): void {
     if (this.email && this.password) {
-      // this.authenticationService.getAccessToken(this.email, this.password).subscribe(() => {
-      this.authenticationService.getAccessToken('dctime02@gmail.com', 'romain').subscribe(() => {
-        this.router.navigate(['team']);
+      this.authenticationService.login(this.email, this.password).subscribe(() => {
+        this.router.navigate(['diary']);
         this.badCredentials = !this.authenticationService.isLogged();
       });
     }
-
   }
 
+  createUser(): void {
+    if (this.email && this.password) {
+      this.authenticationService.createUser(this.email, this.password).subscribe(() => {
+        this.registered = true;
+      });
+    }
+  }
+
+  ping(): void {
+    this.authenticationService.ping();
+  }
 }

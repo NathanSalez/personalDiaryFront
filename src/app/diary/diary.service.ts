@@ -4,15 +4,32 @@ import { Observable, of } from 'rxjs';
 import { Field } from '../models/field.model';
 import { DailyReportResponse } from '../models/daily-report-response.model';
 import {DailyReport} from '../models/daily-report.model';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {AuthenticationService} from '../authentication/authentication.service';
+import {Topic} from '../models/topic.model';
+import {Record} from '../models/record.model';
+import {DataRecord} from '../models/data-record.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DiaryService {
-  private baseUrl: string = 'http://localhost:8081';
+  private baseUrl = 'http://dourlens-monchy.fr:8091/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthenticationService) {}
+
+  getTopics(): Observable<Topic> {
+    const params = new HttpHeaders();
+    params.append('token', this.authService.getToken());
+    return this.http.get<Topic>(this.baseUrl + 'v1/topics', {headers: params});
+  }
+
+  createTopic(topicName: string): Observable<any> {
+    const params = new HttpHeaders();
+    params.append('token', this.authService.getToken());
+    const body = {name: topicName};
+    return this.http.post(this.baseUrl + 'v1/topics', body, {headers: params});
+  }
 
   getDiary(): Observable<Diary> {
     const diary = {
@@ -85,11 +102,6 @@ export class DiaryService {
 
     const diaries = [diary, diary2];
     return of(diaries);
-  }
-
-  create(dailyReport: DailyReport): void
-  {
-    // TODO: implements
   }
 
   getDailyReports(id: string): Observable<DailyReportResponse[]> {

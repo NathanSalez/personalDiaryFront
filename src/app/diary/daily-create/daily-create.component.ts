@@ -44,7 +44,7 @@ export class DailyCreateComponent implements OnInit {
         this.dailyReport.entryList.push(entry);
       });
       console.log(this.dailyReport.entryList[0]);
-      this.diaryService.create(this.dailyReport);
+      // this.diaryService.create(this.dailyReport);
       this.dailyReport.entryList = [];
     }
   }

@@ -18,10 +18,10 @@ export class DiaryService {
 
   constructor(private http: HttpClient, private authService: AuthenticationService) {}
 
-  getTopics(): Observable<Topic> {
+  getTopics(): Observable<Topic[]> {
     const params = new HttpHeaders();
     params.append('token', this.authService.getToken());
-    return this.http.get<Topic>(this.baseUrl + 'v1/topics', {headers: params});
+    return this.http.get<Topic[]>(this.baseUrl + 'v1/topics', {headers: params});
   }
 
   createTopic(topicName: string): Observable<any> {
@@ -29,6 +29,12 @@ export class DiaryService {
     params.append('token', this.authService.getToken());
     const body = {name: topicName};
     return this.http.post(this.baseUrl + 'v1/topics', body, {headers: params});
+  }
+
+  getTopicById(idTopic: number): Observable<Topic> {
+    const params = new HttpHeaders();
+    params.append('token', this.authService.getToken());
+    return this.http.get<Topic>(this.baseUrl + 'v1/topics/' + idTopic, {headers: params});
   }
 
   getDiary(): Observable<Diary> {

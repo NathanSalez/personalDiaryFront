@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {AuthModel} from './models/auth.model';
@@ -17,7 +17,7 @@ export class AuthenticationService {
   login(login: string, pass: string): Observable<AuthModel> {
     return this.http.post<AuthModel>(
       this.authURL + 'v1/authentication/login',
-      {userName: login, password: pass }
+      {username: login, password: pass }
     ).pipe(tap(res => this.token = res.token));
   }
 

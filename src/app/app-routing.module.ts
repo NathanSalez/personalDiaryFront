@@ -5,12 +5,14 @@ import { DiaryEditComponent } from './diary/diary-edit/diary-edit.component';
 import { HomeComponent } from './diary/home/home.component';
 import { DailyReportsComponent } from './diary/daily-reports/daily-reports.component';
 import {DailyCreateComponent} from './diary/daily-create/daily-create.component';
+import {TopicsListComponent} from './diary/topics-list/topics-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: AuthenticationComponent },
   { path: 'diary/edit', component: DiaryEditComponent },
   { path: 'diary', component: HomeComponent },
+  { path: 'topics', component: TopicsListComponent },
   { path: 'diary/:id', component: DailyReportsComponent },
   { path: 'diary/:id/create', component: DailyCreateComponent},
 ];

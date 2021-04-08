@@ -21,14 +21,14 @@ export class AuthenticationComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authenticationService.isLogged()) {
-      this.router.navigate(['diary']);
+      this.router.navigate(['topics']);
     }
   }
 
   login(): void {
     if (this.email && this.password) {
       this.authenticationService.login(this.email, this.password).subscribe(() => {
-        this.router.navigate(['diary']);
+        this.router.navigate(['topics']);
         this.badCredentials = !this.authenticationService.isLogged();
       });
     }

@@ -5,6 +5,6 @@ export interface Topic {
   id: string;
   name: string;
   creationDate: string;
-  records: Record;
+  records: Record[];
   user: User;
 }

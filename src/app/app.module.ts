@@ -26,6 +26,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { DailyCreateComponent } from './diary/daily-create/daily-create.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { TopicsListComponent } from './diary/topics-list/topics-list.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { environment } from '../environments/environment';
     HomeComponent,
     DailyReportsComponent,
     DailyCreateComponent,
+    TopicsListComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+<div class="root">
+  <div class="center">
+    <h1>Vos sujets</h1>
+    <mat-list *ngFor="let topic of topics">
+      <mat-card routerLink="/diary/{{topic.id}}">
+        <mat-card-title>{{ topic.name }}</mat-card-title>
+        <mat-card-content>
+          <ul>
+            <li>Date de création: {{topic.creationDate}}</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </mat-list>
+  </div>
+</div>

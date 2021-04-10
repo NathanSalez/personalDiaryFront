@@ -19,7 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DiaryEditComponent } from './diary/diary-edit/diary-edit.component';
 import { HomeComponent } from './diary/home/home.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { DailyReportsComponent } from './diary/daily-reports/daily-reports.component';
+import { DailyRecordsComponent } from './diary/daily-records/daily-records.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
@@ -34,7 +34,7 @@ import { TopicsListComponent } from './diary/topics-list/topics-list.component';
     AuthenticationComponent,
     DiaryEditComponent,
     HomeComponent,
-    DailyReportsComponent,
+    DailyRecordsComponent,
     DailyCreateComponent,
     TopicsListComponent,
   ],
@@ -57,9 +57,11 @@ import { TopicsListComponent } from './diary/topics-list/topics-list.component';
     MatGridListModule,
     MatDividerModule,
     MatToolbarModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

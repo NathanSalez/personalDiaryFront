@@ -1,0 +1,105 @@
+<div class="h-100 w-100">
+  <ng-container *ngIf="isLoaded">
+    <div class="text-center">
+      <h1>Liste des records</h1>
+    </div>
+
+    <div class="w-100">
+      <div class="float-right">
+        <button
+          routerLink="/diary/create"
+          mat-mini-fab
+          color="primary"
+          aria-label="Add a record"
+        >
+          <mat-icon>plus_one</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="w-100">
+      <button
+        mat-mini-fab
+        aria-label="Go to the previous day"
+        color="primary"
+        (click)="changeDay('<')"
+      >
+        <mat-icon>arrow_back_ios</mat-icon>
+      </button>
+
+      <div class="float-right">
+        <button
+          mat-mini-fab
+          aria-label="Go to the next day"
+          color="primary"
+          (click)="changeDay('>')"
+        >
+          <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <ng-container *ngIf="!isSmallScreen; else displayForSmallScreen">
+      <mat-grid-list cols="7" class="h-100">
+        <mat-grid-tile *ngFor="let recordView of recordsView" class="perso">
+          <div class="text-center">
+            <span>{{ getDayFromDate(recordView.date) }}</span>
+          </div>
+          <div class="text-center">
+            <span>{{ recordView.dateAsString }}</span>
+          </div>
+          <mat-divider class=""></mat-divider>
+          <div
+            class="desc-tile hoverpointer"
+            *ngIf="
+              recordView.record?.dataRecords != null &&
+              recordView.record?.dataRecords.length > 0
+            "
+            (click)="editReport()"
+          >
+            <mat-list>
+              <mat-list-item
+                *ngFor="
+                  let dataRecord of recordView.record.dataRecords;
+                  let isFirst = first
+                "
+              >
+                {{ dataRecord.key }}: {{ dataRecord.value }}
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </ng-container>
+
+    <ng-template #displayForSmallScreen>
+      <div class="w-100 text-center">
+        <h3>{{ dateIndex.dateAsString }}</h3>
+      </div>
+      <mat-divider class="w-100"></mat-divider>
+      <div class="w-100 text-center" *ngIf="isLoaded">
+        <div
+          class="desc-tile hoverpointer"
+          *ngIf="
+            recordForActualIndex &&
+            recordForActualIndex.dataRecords != null &&
+            recordForActualIndex.dataRecords.length > 0
+          "
+          (click)="editReport()"
+        >
+          <mat-list>
+            <mat-list-item
+              *ngFor="
+                let dataRecord of recordForActualIndex.dataRecords;
+                let isFirst = first
+              "
+              [ngClass]="{ 'mt-1': !isFirst }"
+            >
+              {{ dataRecord.key }}: {{ dataRecord.value }}
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

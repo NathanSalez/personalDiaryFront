@@ -28,13 +28,18 @@
   margin-top: 10vh;
 }
 
+.mt-desc-t {
+  margin-top: 0.5em;
+}
+
 .w-grid {
   width: 14.286%;
 }
 
 .desc-tile {
   align-items: center;
-  display: flex;
+  font-size: 2em;
+  /* display: flex; */
 }
 
 .hoverpointer:hover {
@@ -43,4 +48,16 @@
 
 ::ng-deep figure.mat-figure {
   align-items: start !important;
+}
+
+::ng-deep .mat-figure {
+    display: block !important;
+}
+
+.ml-auto {
+  margin-left: auto;;
+}
+
+.float-right {
+  float: right;
 }

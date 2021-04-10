@@ -3,7 +3,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { RouterModule, Routes } from '@angular/router';
 import { DiaryEditComponent } from './diary/diary-edit/diary-edit.component';
 import { HomeComponent } from './diary/home/home.component';
-import { DailyReportsComponent } from './diary/daily-reports/daily-reports.component';
+import { DailyRecordsComponent } from './diary/daily-records/daily-records.component';
 import {DailyCreateComponent} from './diary/daily-create/daily-create.component';
 import {TopicsListComponent} from './diary/topics-list/topics-list.component';
 
@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'diary/edit', component: DiaryEditComponent },
   { path: 'diary', component: HomeComponent },
   { path: 'topics', component: TopicsListComponent },
-  { path: 'diary/:id', component: DailyReportsComponent },
-  { path: 'diary/:id/create', component: DailyCreateComponent},
+  { path: 'diary/:id', component: DailyRecordsComponent },
+  { path: 'diary/:id/create', component: DailyCreateComponent },
 ];
 
 @NgModule({

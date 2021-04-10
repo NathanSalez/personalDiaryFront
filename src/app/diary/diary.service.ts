@@ -31,10 +31,12 @@ export class DiaryService {
     return this.http.post(this.baseUrl + 'v1/topics', body, {headers: params});
   }
 
-  getTopicById(idTopic: number): Observable<Topic> {
+  getTopicById(topicId: string | number): Observable<Topic> {
     const params = new HttpHeaders();
     params.append('token', this.authService.getToken());
-    return this.http.get<Topic>(this.baseUrl + 'v1/topics/' + idTopic, {headers: params});
+    return this.http.get<Topic>(this.baseUrl + 'v1/topics/' + topicId, {
+      headers: params,
+    });
   }
 
   getDiary(): Observable<Diary> {

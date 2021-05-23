@@ -1,0 +1,81 @@
+{
+  "configVersion": 1,
+  "timestamp": 1621786932518,
+  "index": "/personalDiaryFront/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/personalDiaryFront/favicon.ico",
+        "/personalDiaryFront/index.html",
+        "/personalDiaryFront/main.5326acfdf7ff900647ac.js",
+        "/personalDiaryFront/manifest.webmanifest",
+        "/personalDiaryFront/polyfills.00096ed7d93ed26ee6df.js",
+        "/personalDiaryFront/runtime.7b63b9fd40098a2e8207.js",
+        "/personalDiaryFront/styles.eba528c5bb5703a3f203.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/personalDiaryFront/assets/icons/icon-128x128.png",
+        "/personalDiaryFront/assets/icons/icon-144x144.png",
+        "/personalDiaryFront/assets/icons/icon-152x152.png",
+        "/personalDiaryFront/assets/icons/icon-192x192.png",
+        "/personalDiaryFront/assets/icons/icon-384x384.png",
+        "/personalDiaryFront/assets/icons/icon-512x512.png",
+        "/personalDiaryFront/assets/icons/icon-72x72.png",
+        "/personalDiaryFront/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/personalDiaryFront/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/personalDiaryFront/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/personalDiaryFront/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/personalDiaryFront/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/personalDiaryFront/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/personalDiaryFront/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/personalDiaryFront/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/personalDiaryFront/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/personalDiaryFront/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/personalDiaryFront/index.html": "9c60a95a38141c164ed883768bac5e15a7c6bea3",
+    "/personalDiaryFront/main.5326acfdf7ff900647ac.js": "7da0ce8dc6eec0dd3f09279e3345f5d17d871ca4",
+    "/personalDiaryFront/manifest.webmanifest": "7f31cf5de9443d799fab55a43b149bcf9fe623da",
+    "/personalDiaryFront/polyfills.00096ed7d93ed26ee6df.js": "cfe7b0b53e96bff9ba384b4d497c08475a617d62",
+    "/personalDiaryFront/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/personalDiaryFront/styles.eba528c5bb5703a3f203.css": "5fbf18d775e020385359288a8d85f11eea21e4af"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
